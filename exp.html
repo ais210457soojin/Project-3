@@ -1,0 +1,105 @@
+
+
+<html>
+<head>
+<title> exp fOr project 3</title>
+<script src="../processing-1.4.1.js"></script>
+<script type="text/processing" data-processing-target="mycanvas">
+
+PImage jay[] = new PImage[3];
+int n;
+int time;
+int xposition;
+int startTime;
+int endTime;
+	
+void setup()
+{  
+    size(600,600);
+    
+    
+    n = 1;
+    while(n <= 3)
+	{
+		jay[n] = loadImage("jay/jay"+n+".png");
+		n = n + 1;
+	}	
+	
+	time = 0;
+	xposition = 50;
+}  
+
+
+
+void draw()
+{
+
+	background(125,125,125);
+	
+	
+	/*
+
+	if(time >= 0 && time <= 5)
+	{
+		image(jay[1],xposition,100);
+	}	
+	
+	if(time >= 5 && time <= 10)
+	{
+		image(jay[2],xposition,100);
+	}	
+	
+	if(time >= 10 && time <= 15)
+	{
+		image(jay[3],xposition,100);
+	}	
+	
+	
+	
+	
+	*/
+	n = 1;
+	startTime = 0;
+	endTime = 15;
+	
+	while(n <= 3)
+	{
+		if(time >= startTime && time <= endTime)
+			{
+				image(jay[n],50,100);
+			}
+		xposition = xposition + 1;
+		n = n + 1;
+		startTime = startTime + 5;
+		endTime = endTime + 5;
+	
+	}
+	
+	
+	
+	if(time > 14)
+	{
+		time = 0;
+	}
+	
+	text(time,400,200);
+	time = time + 1;
+
+
+}
+
+
+	
+	
+	
+
+</script>
+<canvas id="mycanvas"></canvas>
+</head>
+
+<body>
+
+</body>
+</html>
+
+
